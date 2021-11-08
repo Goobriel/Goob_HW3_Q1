@@ -10,6 +10,8 @@ Person::Person() //Default Constructor definition
 {
     Fname = " Unknown. No name on file. Please register your name and try again."; //Default obj will report no name
     Lname = ""; //Default name of obj will report no name
+    string x = "Birthday:  Unknown. User does not have a birthday on file. \nPlease register your birth-month, your birth-day, and birth-year.";
+    string y = "\nOnce all three components of 'Birthday' have been registered try again for different results.";
     defaultBday = x + " " + y;
     birthDay = 0;//Default birthday of Person obj will be 0/0/0
     birthMonth = 0;
@@ -25,20 +27,19 @@ Person::Person(string first, string last, int day, int month, int year){ //Defin
 }
 
 string Person::getName(){ //Function definition for getName
-    return "Name: " + Fname + " " + Lname + " "; //Returns Fame and Lame displaying the Person obj's first and last name
+    return "Name: " + Fname + " " + Lname + "\n"; //Returns Fame and Lame displaying the Person obj's first and last name
 }
 
 string Person::getBirthdate(){ //Function definition for getBirthday
     if((birthMonth == 0) && (birthDay == 0) && (birthYear == 0)){
         ostringstream dBday;
-        dBday << defaultBday;
+        dBday << defaultBday << "\n";
         return dBday.str();
     }
     else{
         ostringstream bday; //creates ostringstream
-        bday << "Date of birth: " << birthDay << "/" << birthMonth << "/" << birthYear << " "; //ostringstream obj "bday" holds
+        bday << "Date of birth: " << birthDay << "/" << birthMonth << "/" << birthYear << "\n"; //ostringstream obj "bday" holds
         //Person obj data birthDay/birthMonth/birthYear using << operator
         return bday.str(); //Returns and displays the content in ostringstream obj "bday"
     }
 }
-

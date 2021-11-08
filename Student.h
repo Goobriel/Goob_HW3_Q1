@@ -11,19 +11,20 @@ using std::string;
 class Student:public Person {
 public:
     Student(); //Default constructor
-    Student(string first, string last, int year, int day, int month, string sMajor); //Constructor defining student obj with user input
+    Student(string first, string last, int year, int day, int month, string sInstitute, int cHours); //Constructor defining student obj with user input
+    string getData();
+    bool uGS_or_GS();
+    void setInstitute(string sInstitute);
+    string getInstitute();
 
-    //bool uGS_or_GS();
-    void setCreditHours(int cHours); //cHours mutator function
-    int getCreditHours(); //cHours accessor function
+    void setCreditHours(int cHours); //creditHours mutator function
+    int getCreditHours(); //creditHours accessor function
+    string dispCreditHours();
 
-    void setMajor(string sMajor); //sMajor mutator function
-    string getMajor(); //sMajor accessor function
-    string getData(); //
-
-
+protected:
+    string defaultHours;
 private:
-    string major;
+    string institute;
     int creditHours;
 };
 

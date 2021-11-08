@@ -1,20 +1,44 @@
 //
-// Created by Gabep on 11/2/2021.
+// Created by Gabep on 11/7/2021.
 //
 
+
 #include "UnderGradStudent.h"
-#include "Student.h"
-#include "Person.h"
+#include <sstream>
 #include <iostream>
 
-using std::cin;
-using std::cout;
 using std::string;
+using std::cout;
+using std::endl;
+using std::ostringstream;
 
-UnderGradStudent::UnderGradStudent():Student() {
-    primaryLanaguage = "No primaray programming language indicated \n";
+UnderGradStudent::UnderGradStudent(): Student() {
+    studYear = -1;
+    defaultStudYear = " Unknown. User does not have 'Years attended' on file";
+}
+UnderGradStudent::UnderGradStudent(string first, string last, int year, int day, int month, string sInstitute,int cHours, int sYear): Student(first, last, year, day, month, sInstitute, cHours) {
+    studYear = sYear;
 }
 
-UnderGradStudent::UnderGradStudent(string first, string last, int year, int day, int month, string major, string primLang): Student(first, last, year, day, month, primLang){
-    primaryLanaguage = primLang;
+int UnderGradStudent::getStudYear() {
+    return studYear;
+}
+void UnderGradStudent::setStudYear(int sYear) {
+    studYear = sYear;
+}
+string UnderGradStudent::dispStudYear() {
+    if(studYear == -1){
+        ostringstream stringStudYear;
+        stringStudYear << defaultStudYear << "\n";
+        return stringStudYear.str();
+    }
+    else{
+        ostringstream stringStudYear;
+        stringStudYear << studYear << "\n";
+        return stringStudYear.str();
+    }
+}
+
+string UnderGradStudent::getData() {
+    return Student::getData() + "Years attended: " + dispStudYear();
 }

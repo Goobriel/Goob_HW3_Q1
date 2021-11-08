@@ -1,22 +1,26 @@
 //
-// Created by Gabep on 11/2/2021.
+// Created by Gabep on 11/7/2021.
 //
 
-#ifndef GOOB_HW3_Q1_UNDERGRADSTUDENT_H
-#define GOOB_HW3_Q1_UNDERGRADSTUDENT_H
+#ifndef GOOB_HW3_Q1_V1_0_2_UNDERGRADSTUDENT_H
+#define GOOB_HW3_Q1_V1_0_2_UNDERGRADSTUDENT_H
+#include <iostream>
 #include "Student.h"
-#include "Person.h"
+using std::string;
 
-class UnderGradStudent:Student {
+class UnderGradStudent: public Student {
 public:
     UnderGradStudent(); // default constructor
-    UnderGradStudent(string first, string last, int year, int day, int month, string major, string primLang); // constructor with user input
+    UnderGradStudent(string first, string last, int year, int day, int month, string sInstitute, int cHours, int studYear); // constructor with user input
 
-    void setPrimLang(string Language); // primaryLanguage mutator function
-    string getPrimLang(); // primaryLanguage accessor function
+    void setStudYear(int sYear); //major mutator function
+    int getStudYear(); //major accessor function
+    string dispStudYear();
+    string getData();
 private:
-    string primaryLanaguage; // primary coding language
+    int studYear;
+    string defaultStudYear;
 };
 
 
-#endif //GOOB_HW3_Q1_UNDERGRADSTUDENT_H
+#endif //GOOB_HW3_Q1_V1_0_2_UNDERGRADSTUDENT_H

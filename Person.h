@@ -5,20 +5,23 @@
 #ifndef GOOB_HW3_Q1_PERSON_H
 #define GOOB_HW3_Q1_PERSON_H
 #include <string>
-
+using std::string;
 class Person
 {
 public:
-    Person(); //default constructor
-    Person(std::string first, std::string last, int year, int day, int month); //Constructor defining Person obj with user input
-    std::string getName(); //name accessor function
-    std::string getBirthdate(); //name accessor function
 
+    Person(); //default constructor
+    Person(string first, string last, int year, int day, int month); //Constructor defining Person obj with user input
+
+
+
+    string getName(); //name accessor function
+    void setName();
+    string getBirthdate(); //birthday accessor function
+    void setBirthday();
 protected:
     //I understand this is something that most likely shouldn't be done. I'm only doing this because it makes the code look neater.
-    std::string x = "Birthday:  Unknown. User does not have a birthday on file. \nPlease register your birth-month, your birth-day, and birth-year.";
-    std::string y = "\nOnce all three components of 'Birthday' have been registered try again for different results.";
-    std::string defaultBday;
+    string defaultBday;
     /*You may move private members to protected if needed*/
 
 private:
