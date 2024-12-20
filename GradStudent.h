@@ -7,7 +7,7 @@
 #include "Student.h"
 #include "Person.h"
 
-class GradStudent:Student {
+class GradStudent: public Student {
 public:
     GradStudent(); // default constructor
     GradStudent(string first, string last, int year, int day, int month, string sInstitute, int cHours, string sMajor); // constructor with user input
